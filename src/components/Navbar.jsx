@@ -1,9 +1,16 @@
-import React from 'react'
-import { PropTypes } from 'react'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 export default function Navbar() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <div className={`navcont ${darkMode ? 'dark-mode' : ''}`}>
+      <nav className={`navbar navbar-expand-lg ${darkMode ? 'navbar-dark bg-dark' : 'bg-light'}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">Navbar</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +39,11 @@ export default function Navbar() {
                 <a className="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
             </ul>
+            <div className='dark'>
+              <button type="button" className={`btn btn-${darkMode ? 'light' : 'dark'}`} id="dark2" onClick={toggleDarkMode}>
+                {darkMode ? 'Light' : 'Dark'}
+              </button>
+            </div>
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>
@@ -39,7 +51,10 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-
     </div>
-  )
+  );
 }
+
+Navbar.propTypes = {
+  // Add prop types if necessary
+};
