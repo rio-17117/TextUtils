@@ -27,6 +27,7 @@ export default function TextArea() {
     const toggleColor = () => {
         setColor(color === "black" ? "white" : "black");
         setbackground(bg === "white" ? "black" : "white")
+        toast.success("Dark Mode is on!")
     }
     const handleCopy = () => {
         navigator.clipboard.writeText(text);
