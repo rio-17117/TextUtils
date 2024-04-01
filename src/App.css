@@ -90,3 +90,32 @@
   align-items: center;
 
 }
+.app-container.dark-mode {
+  background-color: #242422;
+  color: white;
+}
+
+body {
+  /* Light mode styles */
+  background-color: #ffffff; /* White */
+  color: #343a40; /* Dark gray */
+}
+
+.app-container.dark-mode body {
+  /* Dark mode styles */
+  background-color: #343a40; /* Dark gray */
+  color: #ffffff; /* White */
+}
+
+/* Additional styles for dark mode */
+.app-container.dark-mode .navbar {
+  background-color: #343a40; /* Dark gray */
+  color: #ffffff; /* White */
+}
+
+.app-container.dark-mode .textarea-container {
+  background-color: #343a40; /* Dark gray */
+  color: #ffffff; /* White */
+}
+
+/* Add other element styles as needed */

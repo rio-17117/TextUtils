@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Navbar() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
+export default function Navbar(props) {
   return (
-    <div className={`navcont ${darkMode ? 'dark-mode' : ''}`}>
-      <nav className={`navbar navbar-expand-lg ${darkMode ? 'navbar-dark bg-dark' : 'bg-light'}`}>
+    <div className={`navcont ${props.mode === 'dark' ? 'dark-mode' : ''}`}>
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">Navbar</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,9 +33,9 @@ export default function Navbar() {
                 <a className="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
             </ul>
-            <div className='dark'>
-              <button type="button" className={`btn btn-${darkMode ? 'light' : 'dark'}`} id="dark2" onClick={toggleDarkMode}>
-                {darkMode ? 'Light' : 'Dark'}
+            <div className={`dark-${props.mode === 'light' ? 'dark' : 'light'}`}>
+              <button type="button" className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} bg-${props.mode === 'light' ? 'dark' : 'light'}`} onClick={props.toggleMode} id="dark2">
+                {props.mode === 'dark' ? 'Light' : 'Dark'}
               </button>
             </div>
             <form className="d-flex" role="search">
@@ -56,5 +50,6 @@ export default function Navbar() {
 }
 
 Navbar.propTypes = {
-  // Add prop types if necessary
+  mode: PropTypes.oneOf(['light', 'dark']).isRequired,
+  toggleMode: PropTypes.func.isRequired,
 };
