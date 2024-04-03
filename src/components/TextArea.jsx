@@ -38,7 +38,7 @@ export default function TextArea(props) {
     }, [props.mode]);
 
     return (
-        <div className="container" style={{ color: props.mode === 'dark' ? 'white' : 'black', backgroundColor: props.mode === 'dark' ? '#242422' : 'white' , height:'92vh', overflowY:'hidden'}}>
+        <div className="container" style={{ color: props.mode === 'dark' ? 'white' : 'black', backgroundColor: props.mode === 'dark' ? '#242422' : 'white' , height:'94vh', overflowY:'hidden'}}>
             <div className="container mt-3">
                 <h3>
                     <label htmlFor="exampleFormControlTextarea1" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>Enter your text here</label>
@@ -59,8 +59,6 @@ export default function TextArea(props) {
                     <button type="button" className={`btn btn-${props.mode === 'dark' ? 'light text-white bg-dark' : 'dark'}`} id="btn3" onClick={handleLowClick}>To LowerCaseText
                     </button>
                     <button type="button" className={`btn btn-${props.mode === 'dark' ? 'light text-white bg-dark' : 'dark'}`} id="btn5" onClick={handleCopy}>To copy the text
-                    </button>
-                    <button type="button" className={`btn btn-${props.mode === 'dark' ? 'light text-white bg-dark' : 'dark'}`} id="btn4" onClick={props.toggleMode}>Change Color
                     </button>
                     <button type="button" className={`btn btn-${props.mode === 'bl;ack' ? 'light text-white bg-dark' : 'red'}`} id="btn2" onClick={handleDelete}>To delete the text
                     </button>

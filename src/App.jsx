@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
 import Navbar from "./components/Navbar";
@@ -9,9 +9,15 @@ import {
   Route,
 } from "react-router-dom";
 
-
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  // Retrieve darkMode from local storage or default to false
+  const savedDarkMode = JSON.parse(localStorage.getItem('darkMode')) || false;
+  const [darkMode, setDarkMode] = useState(savedDarkMode);
+
+  // Save darkMode to local storage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
 
   const toggleMode = () => {
     setDarkMode(!darkMode);
@@ -21,8 +27,8 @@ function App() {
     <Router>
       <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
         <Routes>
-          <Route path="/about" element={<><Navbar mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /><Toaster /></>} />
-          <Route path="/" element={<><Navbar mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /><TextArea mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /></>} />
+          <Route path="/about" element={<><Navbar mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /></>} />
+          <Route path="/" element={<><Navbar mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /><TextArea mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /><Toaster  /></>} />
         </Routes>
       </div>
     </Router>
