@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Form from './components/Form';
 
 function App() {
   // Retrieve darkMode from local storage or default to false
@@ -20,14 +21,14 @@ function App() {
   }, [darkMode]);
 
   const toggleMode = () => {
-    setDarkMode(!darkMode);
+    return setDarkMode(!darkMode);
   };
 
   return (
     <Router>
       <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
         <Routes>
-          <Route path="/about" element={<><Navbar mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /></>} />
+          <Route path="/form" element={<><Navbar mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /><Form/></>} />
           <Route path="/" element={<><Navbar mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /><TextArea mode={darkMode ? 'dark' : 'light'} toggleMode={toggleMode} /><Toaster  /></>} />
         </Routes>
       </div>

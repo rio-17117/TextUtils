@@ -119,3 +119,19 @@ body {
 }
 
 /* Add other element styles as needed */
+#emailHelp{
+  color: red;
+
+}
+.nav-link{
+  font-weight: 500;
+  font-size: 17px;
+  /* color: aliceblue; */
+}
+.formCont{
+  height: 89vh;
+  /* display: flex; */
+  justify-content: center;
+  margin-top: 50px;
+  align-items: center;
+}

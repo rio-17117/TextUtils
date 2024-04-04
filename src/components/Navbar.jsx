@@ -9,7 +9,7 @@ export default function Navbar(props) {
     <div className={`navcont ${props.mode === 'dark' ? 'dark-mode' : ''}`}>
       <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">Navbar</Link>
+          <Link className="navbar-brand" to="/">TextUtils</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -19,7 +19,7 @@ export default function Navbar(props) {
                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">About</Link>
+                <Link className="nav-link" to="/form" >Form</Link>
               </li>
             </ul>
             <div className={`dark-${props.mode === 'light' ? 'dark' : 'light'}`}>
