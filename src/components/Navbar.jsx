@@ -23,7 +23,7 @@ export default function Navbar(props) {
               </li>
             </ul>
             <div className={`dark-${props.mode === 'light' ? 'dark' : 'light'}`}>
-              <button type="button" className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} bg-${props.mode === 'light' ? 'dark' : 'light'}`} onClick={props.toggleMode} id="dark2" onChange={toast.success("Color theme updated sucessfully!", {
+              <button type="button" className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} bg-${props.mode === 'light' ? 'dark' : 'light'}`} onClick={props.toggleMode} id="dark2" onChange={()=>toast.success("Color theme updated sucessfully!", {
                 id:'tot'
               })}>
                 {props.mode === 'dark' ? 'Light' : 'Dark'}
